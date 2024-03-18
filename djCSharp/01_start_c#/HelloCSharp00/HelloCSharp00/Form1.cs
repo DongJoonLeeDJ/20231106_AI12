@@ -23,6 +23,7 @@ namespace HelloCSharp00
             //mbox 적고 tab키 두 번 누르면 아래 코드가 자동으로 나옴
             //MessageBox.Show("Test");
             MessageBox.Show("안녕하세요");
+            MessageBox.Show("Test");
         }
     }
 }
