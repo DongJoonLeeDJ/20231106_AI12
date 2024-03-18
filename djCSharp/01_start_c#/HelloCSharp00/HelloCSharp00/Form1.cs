@@ -24,6 +24,7 @@ namespace HelloCSharp00
             //MessageBox.Show("Test");
             MessageBox.Show("안녕하세요");
             MessageBox.Show("Test");
+            MessageBox.Show("Test~~~~");
         }
     }
 }
