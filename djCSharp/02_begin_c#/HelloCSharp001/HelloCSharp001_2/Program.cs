@@ -51,7 +51,18 @@ namespace HelloCSharp001_2
             //참고: 상수는 한 번 선언하면 바뀌지 않는다.
             int r = int.Parse(Console.ReadLine());
             Console.WriteLine("둘레:"+(2*PI*r));
-            Console.WriteLine("넓이:"+(r*r*PI));
+            Console.WriteLine("넓이:" + (r * r * PI));
+            Console.WriteLine("char byte 값");
+            Console.WriteLine(sizeof(char));
+
+            Console.WriteLine("++ 전위 후위");
+            int testnum = 10;
+            Console.WriteLine(testnum++);
+            Console.WriteLine(++testnum);
+            Console.WriteLine(testnum);
+            testnum++; //실무에서는 그냥 두 줄로 씀
+            Console.WriteLine(testnum);
+            Console.WriteLine(123.ToString()+"abcd");
 
         }
     }
