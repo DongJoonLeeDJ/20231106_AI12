@@ -11,6 +11,7 @@ namespace HelloCSharp001_3
         static void Main(string[] args)
         {
             Random rnd = new Random();
+            // rnd.Next(6)  : 0부터5까지의 정수가 나옴
             int num = rnd.Next(6) + 1;//1~6까지 값 나옴
             //switch 적고 tab키 두 번
             switch (num)
