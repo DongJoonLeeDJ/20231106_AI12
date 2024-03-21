@@ -36,7 +36,7 @@ namespace HelloCSharp032
         static void Main(string[] args)
         {
             Console.WriteLine(DateTime.Now.ToString("mm분ss초fff"));
-            Console.WriteLine(   Fibo(100) );
+            Console.WriteLine(   Fibo(40) );
             Console.WriteLine(DateTime.Now.ToString("mm분ss초fff"));
             Console.WriteLine( Fibonacci(100) ) ;
             Console.WriteLine(DateTime.Now.ToString("mm분ss초fff"));
