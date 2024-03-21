@@ -12,6 +12,8 @@ namespace HelloCSharp037
         //age,name, Sleep, LivingWorld에 접근 가능함
         public int age { get; set; }
         public string name { get; set; }
+
+        public static string zooName { get; set; }
         public void Sleep()
         {
             Console.WriteLine("잠을 잡니다.");
@@ -31,5 +33,21 @@ namespace HelloCSharp037
         {
             Console.WriteLine("도망을 갑니다.");
         }
+
+        public void Eat()
+        {
+            Console.WriteLine("냠냠");
+        }
+        public virtual void Charm()
+        {
+            Console.WriteLine("사랑해용~");
+        }
+        public virtual void cry()
+        {
+            Console.WriteLine("ㅠㅠ");
+        }
+
+
+
     }
 }
