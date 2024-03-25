@@ -44,5 +44,21 @@ namespace HelloCSharp04
             MessageBox.Show("잠시 숨겼습니다."); //모달을 활용하는 방법 중 하나
             Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Hide();
+            //new Form2("10!=1o").ShowDialog(); //모달, Form2만 보일 것
+            new Form2("10!=1o").Show();//모달리스, 창이 둘 다 나타날 것
+            Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            IsMdiContainer = true;//자기 자신을 Mdi 컨테이너로 만듦
+            Form2 f = new Form2();
+            f.MdiParent = this; //현재 창을 부모 창으로 지정
+            f.Show();
+        }
     }
 }
