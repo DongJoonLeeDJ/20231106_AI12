@@ -30,10 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.Column_hakbeon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.hakbeonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
@@ -49,15 +52,13 @@
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
-            this.hakbeonDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.studentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.textBox8 = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
@@ -76,6 +77,16 @@
             this.dataGridView1.RowTemplate.Height = 23;
             this.dataGridView1.Size = new System.Drawing.Size(258, 150);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // Column_hakbeon
+            // 
+            this.Column_hakbeon.HeaderText = "학번";
+            this.Column_hakbeon.Name = "Column_hakbeon";
+            // 
+            // Column_name
+            // 
+            this.Column_name.HeaderText = "이름";
+            this.Column_name.Name = "Column_name";
             // 
             // dataGridView2
             // 
@@ -103,15 +114,23 @@
             this.dataGridView3.Size = new System.Drawing.Size(265, 150);
             this.dataGridView3.TabIndex = 2;
             // 
-            // Column_hakbeon
+            // hakbeonDataGridViewTextBoxColumn
             // 
-            this.Column_hakbeon.HeaderText = "학번";
-            this.Column_hakbeon.Name = "Column_hakbeon";
+            this.hakbeonDataGridViewTextBoxColumn.DataPropertyName = "hakbeon";
+            this.hakbeonDataGridViewTextBoxColumn.HeaderText = "hakbeon";
+            this.hakbeonDataGridViewTextBoxColumn.Name = "hakbeonDataGridViewTextBoxColumn";
+            this.hakbeonDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Column_name
+            // nameDataGridViewTextBoxColumn
             // 
-            this.Column_name.HeaderText = "이름";
-            this.Column_name.Name = "Column_name";
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // studentBindingSource
+            // 
+            this.studentBindingSource.DataSource = typeof(HelloCSharp045.Student);
             // 
             // button1
             // 
@@ -238,24 +257,6 @@
             this.textBox7.Size = new System.Drawing.Size(100, 21);
             this.textBox7.TabIndex = 17;
             // 
-            // hakbeonDataGridViewTextBoxColumn
-            // 
-            this.hakbeonDataGridViewTextBoxColumn.DataPropertyName = "hakbeon";
-            this.hakbeonDataGridViewTextBoxColumn.HeaderText = "hakbeon";
-            this.hakbeonDataGridViewTextBoxColumn.Name = "hakbeonDataGridViewTextBoxColumn";
-            this.hakbeonDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // studentBindingSource
-            // 
-            this.studentBindingSource.DataSource = typeof(HelloCSharp045.Student);
-            // 
             // dataGridView4
             // 
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -307,11 +308,23 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(55, 300);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(86, 16);
+            this.checkBox1.TabIndex = 24;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 539);
+            this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label6);
@@ -379,6 +392,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox9;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 

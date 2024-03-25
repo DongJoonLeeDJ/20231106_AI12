@@ -57,5 +57,23 @@ namespace HelloCSharp045
             dataGridView4.DataSource = null;
             dataGridView4.DataSource = students;
         }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if( (sender as CheckBox).Checked )
+            {
+                dataGridView1.Columns["Column_hakbeon"].HeaderText = "!!!";
+            } 
+            else
+            {
+                dataGridView1.Columns["Column_hakbeon"].HeaderText = "학번!";
+
+            }
+        }
     }
 }
