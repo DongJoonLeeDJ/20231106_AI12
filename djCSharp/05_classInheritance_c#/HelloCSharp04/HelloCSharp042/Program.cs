@@ -8,6 +8,33 @@ namespace HelloCSharp042
 {
     internal class Program
     {
+
+        //out 키워드와 ref 키워드의 가장 큰 차이
+        //out 키워드가 있는 건 꼭 대입을 해줘야 함(대입 연산자 필수)
+        //ref는 필수는 아님
+        //out은 할당되기 전에는 다른 변수에 할당할 수 없다.
+        //공통점
+        //ref와 out 모두 메서드 바깥에 있는 변수랑 연결되어 있음
+        
+        static void NextPos(int x, int y, int vx, int vy, out int rx, out int ry)
+        {
+            rx = x + vx;
+            ry = y + vy;
+        }
+        static void swap(int oldx, int oldy, out int x, out int y)
+        {
+            x = oldx;
+            y = oldy;
+            int temp = x;
+            x = y;
+            y = temp;
+        }
+        static void swap(ref int x, ref int y)
+        {
+            int temp = x;
+            x = y;
+            y = temp;
+        }
         static void Main(string[] args)
         {
             //제너릭 활용 예시
@@ -36,6 +63,16 @@ namespace HelloCSharp042
             bool fc = int.TryParse("123", out int c);
             Console.WriteLine("a="+a+",b="+b+",c="+c);
             Console.WriteLine("fa=" + fa + ",fb=" + fb+",fc="+fc);
+
+            int x1 = 3; int y1 = 5;
+            int x2 = 3; int y2 = 5;
+            //ref, out : main에 있는 변수의 값과 위치 모두 참조함
+
+            swap(x1, y1, out x1, out y1); //out 이용한 것
+            swap(ref x2, ref y2); //ref 이용한 것
+
+            Console.WriteLine("x1="+x1+",y1="+y1);
+            Console.WriteLine("x2="+x2+",y2="+y2);
 
 
         }
