@@ -75,5 +75,14 @@ namespace HelloCSharp045
 
             }
         }
+
+        private void checkBox2_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox temp = sender as CheckBox;
+            if (temp.Checked)
+                dataGridView3.Columns["hakbeonDataGridViewTextBoxColumn"].HeaderText = "???";
+            else
+                dataGridView3.Columns["hakbeonDataGridViewTextBoxColumn"].HeaderText = "학번?";
+        }
     }
 }
