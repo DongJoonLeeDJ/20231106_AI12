@@ -15,10 +15,12 @@ namespace HelloCSharp041
     {
         public Form2()
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
         }
         public Form2(string txt)
         {
+            StartPosition = FormStartPosition.CenterScreen;
             InitializeComponent();
 
             if (txt.Equals("red"))
