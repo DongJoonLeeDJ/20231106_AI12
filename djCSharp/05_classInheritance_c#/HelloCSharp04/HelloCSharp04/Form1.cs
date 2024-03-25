@@ -26,7 +26,7 @@ namespace HelloCSharp04
 
             //디자인면에서나 버튼 개수 면에서 제한이 많음
             //팝업 창에서 뭔가를 입력받고 싶은 데 그런 기능은 없음
-            MessageBox.Show("경고 메시지");
+            MessageBox.Show("경고 메시지"); //메시지 박스는 기본적으로 모달!!!
             MessageBox.Show("위험 메시지", "위험!");
             DialogResult result;
             do
@@ -34,6 +34,15 @@ namespace HelloCSharp04
                 result = MessageBox.Show
                     ("다시 시도?","시도문의",MessageBoxButtons.RetryCancel);
             } while (result==DialogResult.Retry);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Hide();
+            //코드가 멈춰서 Show를 호출 안 함
+            //창을 닫아야 Show 호출하게 됨
+            MessageBox.Show("잠시 숨겼습니다."); //모달을 활용하는 방법 중 하나
+            Show();
         }
     }
 }
