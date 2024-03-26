@@ -12,7 +12,7 @@ namespace HelloCSharp05
                                         //대신 이게 인터페이스게 들어가면
                                         //이 get과 set 부분도 직접 구현해야 함
         string ability { get; set; } //특성, 포켓몬마다 다름
-        void fight();
+         void fight();
         void charming();
         
     }

@@ -40,7 +40,7 @@ namespace HelloCSharp05
             Console.WriteLine("덩쿨로 냠냠");
         }
 
-        public void fight()
+        public virtual  void fight() //이상해씨를 상속받을 경우 fight는 오버라이드 가능
         {
             Console.WriteLine("덩쿨로 후드려 팸");
         }

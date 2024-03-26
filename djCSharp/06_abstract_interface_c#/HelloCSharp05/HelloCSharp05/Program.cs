@@ -38,6 +38,14 @@ namespace HelloCSharp05
             b1.charming();
             b1.fight();
 
+            Bulbasaur i1 = new Ivysaur();
+            IPokemon i2 = new Ivysaur();
+            IPlant i3 = new Ivysaur();
+            Ivysaur i = new Ivysaur();
+
+            i.cry();
+            i.fight();
+
 
         }
     }
