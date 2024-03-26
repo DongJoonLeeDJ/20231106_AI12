@@ -1,0 +1,18 @@
+1. 이상해꽃(Venusaur) 클래스 만들어보기
+cry와 fight 그리고 
+        void photosynthesis(); //광합성
+        void blooming(); //꽃을 피움
+        void bearFruit(); //열매 맺다
+이 것들 모두 오버라이드 할 것
+
+2. 인터페이스 간에도 상속이 된다. 아래와 같이 인터페이스 만들어보세요.
+아래 2개의 인터페이스 만들고 (메서드는 각자 알아서 자유롭게 하나 이상씩)
+IBirds //조류
+IFantasy // 판타지
+
+그 인터페이스 상속받는 아래와 같은 인터페이스 만들기
+ICreatures //생물 
+
+3. 추상클래스인 Animal을 상속받아서 Reptilia (파충류) 추상 클래스 만들어보기
+
+
