@@ -82,7 +82,7 @@ namespace HelloCSharp045
             if (temp.Checked)
                 dataGridView3.Columns["hakbeonDataGridViewTextBoxColumn"].HeaderText = "???";
             else
-                dataGridView3.Columns["hakbeonDataGridViewTextBoxColumn"].HeaderText = "학번?";
+                dataGridView3.Columns["hakbeonDataGridViewTextBoxColumn"].HeaderText = "학번?"; 
         }
     }
 }
