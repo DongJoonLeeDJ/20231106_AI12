@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EE447CFB-F900-4DDF-8C56-EFC4390574F4}</ProjectGuid>
+    <ProjectGuid>{FDB4F72B-E166-46CB-8EBE-75919E41615A}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>HelloCSharp055</RootNamespace>
-    <AssemblyName>HelloCSharp055</AssemblyName>
+    <RootNamespace>HelloCSharp056</RootNamespace>
+    <AssemblyName>HelloCSharp056</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Product.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
