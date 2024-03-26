@@ -37,7 +37,20 @@ namespace HelloCSharp056
                 Console.WriteLine("온도:" + item.Temp);
                 Console.WriteLine("날씨:" + item.wfKor);
             }
-
+            var xmlWq = from item in x.Descendants("data") //xml 문서의 일부 태그를 익명객체 데이터 형태로 가공해서 가져옴
+                           select
+                           new Weather()
+                           {
+                               hour = item.Element("hour").Value,
+                               temp = item.Element("temp").Value,
+                               wf = item.Element("wfKor").Value
+                           };
+            foreach (var item in xmlWq)
+            {
+                Console.WriteLine("시간:" + item.hour);
+                Console.WriteLine("온도:" + item.temp);
+                Console.WriteLine("날씨:" + item.wf);
+            }
         }
     }
 }
