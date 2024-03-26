@@ -15,12 +15,12 @@ namespace HelloCSharp05
         public int age { get { return pAge; } set { if (value < 0) pAge = 0; else pAge = value; }  }
         public string ability { get; set; }
 
-        public void bearFruit()
+        public virtual void bearFruit()
         {
             Console.WriteLine("아직 그런 거 없어요.");
         }
 
-        public void blooming()
+        public virtual void blooming()
         {
             Console.WriteLine("꽃 봉오리도 없음 ㅇㅇ");
         }
@@ -45,7 +45,7 @@ namespace HelloCSharp05
             Console.WriteLine("덩쿨로 후드려 팸");
         }
 
-        public void photosynthesis() //인터페이스에서 온 메서드
+        public virtual void photosynthesis() //인터페이스에서 온 메서드
         {
             Console.WriteLine("봉오리 끝에서 햇빛을 흡수함");
         }
