@@ -20,7 +20,7 @@ namespace HelloCSharp054
             btn.Click += myevent;
             btn.Click += delegate (object s, EventArgs e)
             {
-                MessageBox.Show("두번째 이벤트");
+                MessageBox.Show("두번째 이벤4트");
             };
             btn.Click += (s, e) =>
             {
