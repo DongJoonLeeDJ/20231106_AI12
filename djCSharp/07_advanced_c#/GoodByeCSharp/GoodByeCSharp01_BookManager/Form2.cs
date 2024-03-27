@@ -15,6 +15,7 @@ namespace GoodByeCSharp01_BookManager
         public Form2()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
             bookBindingSource.Clear();
             foreach(Book book in DataManager.Books)
             {
