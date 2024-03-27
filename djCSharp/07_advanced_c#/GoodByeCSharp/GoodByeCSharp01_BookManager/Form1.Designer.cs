@@ -85,12 +85,14 @@
             this.LibraryBookToolStripMenuItem.Name = "LibraryBookToolStripMenuItem";
             this.LibraryBookToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.LibraryBookToolStripMenuItem.Text = "도서 관리";
+            this.LibraryBookToolStripMenuItem.Click += new System.EventHandler(this.LibraryBookToolStripMenuItem_Click);
             // 
             // LibraryUserToolStripMenuItem
             // 
             this.LibraryUserToolStripMenuItem.Name = "LibraryUserToolStripMenuItem";
             this.LibraryUserToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.LibraryUserToolStripMenuItem.Text = "사용자 관리";
+            this.LibraryUserToolStripMenuItem.Click += new System.EventHandler(this.LibraryUserToolStripMenuItem_Click);
             // 
             // groupBox1
             // 
