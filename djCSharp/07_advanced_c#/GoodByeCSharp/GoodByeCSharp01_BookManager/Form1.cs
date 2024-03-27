@@ -35,13 +35,22 @@ namespace GoodByeCSharp01_BookManager
             label4.Text += DataManager.Books.Where
                 (delegate (Book x) { return x.isBorrowed && x.BorrowedAt.AddDays(7) < DateTime.Now; }).Count()+"";
 
-            if (DataManager.Books.Count > 0)
-                bookBindingSource.DataSource = DataManager.Books;
+            bookBindingSource.Clear();
+            foreach(Book book in DataManager.Books) 
+            {
+                bookBindingSource.Add(book);
+            }
 
             dataGridView2.DataSource = null;
             if (DataManager.Users.Count > 0)
                 dataGridView2.DataSource = DataManager.Users;
 
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataManager.Books.RemoveAt(0);
 
         }
     }

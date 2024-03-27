@@ -50,7 +50,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.isbnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.publisherDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +58,7 @@
             this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isBorrowedDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.borrowedAtDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -234,6 +234,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -279,57 +280,65 @@
             this.dataGridView2.Size = new System.Drawing.Size(487, 84);
             this.dataGridView2.TabIndex = 1;
             // 
-            // bookBindingSource
-            // 
-            this.bookBindingSource.DataSource = typeof(GoodByeCSharp01_BookManager.Book);
-            // 
             // isbnDataGridViewTextBoxColumn
             // 
             this.isbnDataGridViewTextBoxColumn.DataPropertyName = "isbn";
             this.isbnDataGridViewTextBoxColumn.HeaderText = "isbn";
             this.isbnDataGridViewTextBoxColumn.Name = "isbnDataGridViewTextBoxColumn";
+            this.isbnDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "name";
             this.nameDataGridViewTextBoxColumn.HeaderText = "name";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // publisherDataGridViewTextBoxColumn
             // 
             this.publisherDataGridViewTextBoxColumn.DataPropertyName = "publisher";
             this.publisherDataGridViewTextBoxColumn.HeaderText = "publisher";
             this.publisherDataGridViewTextBoxColumn.Name = "publisherDataGridViewTextBoxColumn";
+            this.publisherDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // pageDataGridViewTextBoxColumn
             // 
             this.pageDataGridViewTextBoxColumn.DataPropertyName = "page";
             this.pageDataGridViewTextBoxColumn.HeaderText = "page";
             this.pageDataGridViewTextBoxColumn.Name = "pageDataGridViewTextBoxColumn";
+            this.pageDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // userIdDataGridViewTextBoxColumn
             // 
             this.userIdDataGridViewTextBoxColumn.DataPropertyName = "userId";
             this.userIdDataGridViewTextBoxColumn.HeaderText = "userId";
             this.userIdDataGridViewTextBoxColumn.Name = "userIdDataGridViewTextBoxColumn";
+            this.userIdDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // userNameDataGridViewTextBoxColumn
             // 
             this.userNameDataGridViewTextBoxColumn.DataPropertyName = "userName";
             this.userNameDataGridViewTextBoxColumn.HeaderText = "userName";
             this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
+            this.userNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // isBorrowedDataGridViewCheckBoxColumn
             // 
             this.isBorrowedDataGridViewCheckBoxColumn.DataPropertyName = "isBorrowed";
             this.isBorrowedDataGridViewCheckBoxColumn.HeaderText = "isBorrowed";
             this.isBorrowedDataGridViewCheckBoxColumn.Name = "isBorrowedDataGridViewCheckBoxColumn";
+            this.isBorrowedDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
             // borrowedAtDataGridViewTextBoxColumn
             // 
             this.borrowedAtDataGridViewTextBoxColumn.DataPropertyName = "BorrowedAt";
             this.borrowedAtDataGridViewTextBoxColumn.HeaderText = "BorrowedAt";
             this.borrowedAtDataGridViewTextBoxColumn.Name = "borrowedAtDataGridViewTextBoxColumn";
+            this.borrowedAtDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // bookBindingSource
+            // 
+            this.bookBindingSource.DataSource = typeof(GoodByeCSharp01_BookManager.Book);
             // 
             // Form1
             // 

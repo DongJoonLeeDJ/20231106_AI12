@@ -30,7 +30,7 @@ namespace GoodByeCSharp01_BookManager
         const string USERID = "userid";
         const string USERNAME = "username";
         const string ISBORROWED = "isborrowed";
-        const string BORROWEDAT = "borrowedat";
+        const string BORROWEDAT = "borrowedAt";
         const string ID = "id";
 
         public static void Load() //도서 정보랑 유저 정보를 xml 파일에서 읽어오는 함수
