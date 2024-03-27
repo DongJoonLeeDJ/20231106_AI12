@@ -40,6 +40,11 @@ namespace GoodByeCSharp01_BookManager
             {
                 bookBindingSource.Add(book);
             }
+            /*
+             bookBindingSource.DataSource=null;
+             if (DataManager.Books.Count > 0)
+                bookBindingSource.DataSource=DataManager.Books;
+             */
 
             dataGridView2.DataSource = null;
             if (DataManager.Users.Count > 0)
