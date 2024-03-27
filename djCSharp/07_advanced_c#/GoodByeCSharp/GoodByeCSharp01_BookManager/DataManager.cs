@@ -74,7 +74,35 @@ namespace GoodByeCSharp01_BookManager
         }
         public static void Save()//도서 정보랑 유저 정보를 xml 파일에 저장하는 함수
         {
+            string booksOutput = "";
+            booksOutput += "<books>\n";
+            foreach(var item in Books)
+            {
+                booksOutput += "    <book>" + Environment.NewLine;
+                booksOutput += $"       <{ISBN}>{item.isbn}</{ISBN}>"+Environment.NewLine;
+                booksOutput += $"       <{NAME}>{item.name}</{NAME}>"+Environment.NewLine;
+                booksOutput += $"       <{PUBLISHER}>{item.publisher}</{PUBLISHER}>"+Environment.NewLine;
+                booksOutput += $"       <{PAGE}>{item.page}</{PAGE}>"+Environment.NewLine;
+                booksOutput += $"       <{BORROWEDAT}>{item.BorrowedAt}</{BORROWEDAT}>"+Environment.NewLine;
+                booksOutput += $"       <{ISBORROWED}>"+ (item.isBorrowed ? 1 : 0)  +$"</{ISBORROWED}>"+Environment.NewLine;
+                booksOutput += $"       <{USERID}>{item.userId}</{USERID}>"+Environment.NewLine;
+                booksOutput += $"       <{USERNAME}>{item.userName}</{USERNAME}>"+Environment.NewLine;
+                booksOutput += "    </book>" + Environment.NewLine;
+            }
+            booksOutput += "</books>";
+            File.WriteAllText("./Books.xml", booksOutput);
 
+            string usersOutput = "";
+            usersOutput += "<users>\n";
+            foreach(var item in Users)
+            {
+                usersOutput += "    <user>\n";
+                usersOutput += $"       <{ID}>{item.id}</{ID}>\n";
+                usersOutput += $"       <{NAME}>{item.name}</{NAME}>\n";
+                usersOutput += "    </user>\n";
+            }
+            usersOutput += "</users>\n";
+            File.WriteAllText("./Users.xml", usersOutput);
         }
     }
 }
