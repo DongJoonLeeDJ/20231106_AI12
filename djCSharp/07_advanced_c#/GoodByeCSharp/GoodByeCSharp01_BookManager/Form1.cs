@@ -33,7 +33,7 @@ namespace GoodByeCSharp01_BookManager
             //label4.Text += DataManager.Books.Where
             //    ( (x) => x.isBorrowed&&x.BorrowedAt.AddDays(7)<DateTime.Now).Count().ToString();
             label4.Text += DataManager.Books.Where
-                (delegate (Book x) {return x.isBorrowed && x.BorrowedAt.AddDays(7) < DateTime.Now}).Count()+"";
+                (delegate (Book x) { return x.isBorrowed && x.BorrowedAt.AddDays(7) < DateTime.Now; }).Count()+"";
 
             if (DataManager.Books.Count > 0)
                 bookBindingSource.DataSource = DataManager.Books;
