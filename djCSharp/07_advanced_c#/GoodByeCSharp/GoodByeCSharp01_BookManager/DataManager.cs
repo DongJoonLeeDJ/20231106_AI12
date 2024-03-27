@@ -54,6 +54,17 @@ namespace GoodByeCSharp01_BookManager
                     book.userName = item.Element(USERNAME).Value;
                     Books.Add(book);
                 }
+
+                string usersOutput = File.ReadAllText("./Users.xml");
+                XElement ux = XElement.Parse(usersOutput);
+                //LINQ 쓸 거라면 Clear안쓸거임
+                Users = (from item in ux.Descendants("user") select new  User()
+                {
+                    id=item.Element(ID).Value,
+                    name=item.Element(NAME).Value
+                }).ToList<User>();
+
+
             }
             catch (Exception ex)//FileLoadException을 쓰면 또 다른 Exception은 대비가 안 됨
             {
