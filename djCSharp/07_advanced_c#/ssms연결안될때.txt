@@ -1,0 +1,2 @@
+TrustServerCertificate=True
+https://mozi.tistory.com/285
