@@ -49,7 +49,37 @@ namespace GoodByeCSharp01_BookManager
             //수정
             button2.Click += delegate (object s, EventArgs e)
             {
+                try
+                {
+                    //Single = Users에 있는 내용 중 괄호 안에 있는 람다식을 만족하는 요소의 위치를 참조함
+                    //만약 만족하는 게 하나도 없으면 exception을 발생시키므로 try catch 필수
+                    //위치를 참조하므로 u의 값을 변경하면 Users의 해당 요소도 같이 변경이 됨
+                    User u = DataManager.Users.Single(x => x.id == textBox1.Text);
+                    u.name = textBox2.Text; //이름 변경
+                    try
+                    {
+                        // Book b = DataManager.Books.Single
+                        // (x=>x.userId==textBox1.Text);
 
+                        //Book b=DataManager.Books.Single(
+                        //delegate (Book x) { return x.userId == textBox1.Text; });
+
+
+                        Book b = DataManager.Books.Single(FindBook);
+                        b.userName = textBox2.Text;
+                    }
+                    catch (Exception ex) //ex를 이용해서 디버깅을 할 수 있음
+                    {
+
+                    }
+                }
+                catch (Exception ex) //ex를 이용해서 디버깅을 할 수 있음
+                {
+                    MessageBox.Show("해당 ID는 없으므로 수정 불가능");
+                }
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = DataManager.Users;
+                DataManager.Save();
             };
             //삭제
             button3.Click += deleteUser;
