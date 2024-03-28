@@ -283,6 +283,13 @@
             this.dataGridView2.Size = new System.Drawing.Size(487, 84);
             this.dataGridView2.TabIndex = 1;
             // 
+<<<<<<< Updated upstream
+=======
+            // bookBindingSource
+            // 
+//            this.bookBindingSource.DataSource = typeof(GoodByeCSharp01_BookManager.Book);
+            // 
+>>>>>>> Stashed changes
             // isbnDataGridViewTextBoxColumn
             // 
             this.isbnDataGridViewTextBoxColumn.DataPropertyName = "isbn";
@@ -341,7 +348,7 @@
             // 
             // bookBindingSource
             // 
-            this.bookBindingSource.DataSource = typeof(GoodByeCSharp01_BookManager.Book);
+//            this.bookBindingSource.DataSource = typeof(GoodByeCSharp01_BookManager.Book);
             // 
             // Form1
             // 
