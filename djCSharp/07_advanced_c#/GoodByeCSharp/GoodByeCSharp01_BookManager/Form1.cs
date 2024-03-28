@@ -60,6 +60,8 @@ namespace GoodByeCSharp01_BookManager
             //DataManager에 있는 Books나 Users의 변경 사항이 DataGridView에도 반영이 됨 
             if (DataManager.Users.Count > 0)
                 dataGridView2.DataSource = DataManager.Users;
+
+            dataGridView1.Refresh();
         }
 
 
@@ -97,7 +99,43 @@ namespace GoodByeCSharp01_BookManager
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if(textBox1.Text.Trim()=="") //양쪽 공백을 다 지웠는 데도 아무 것도 없다면
+                MessageBox.Show("isbn없음");
+            else if(textBox3.Text.Trim()=="")
+                MessageBox.Show("사용자 id 없음");
+            else
+            {
+                try
+                {
 
+                    Book b = DataManager.Books.Single(x => x.isbn == textBox1.Text);
+                    if(b.isBorrowed) //이미 빌린 책이라면
+                        MessageBox.Show("해당 책은 이미 빌렸습니다.");
+                    else
+                    {
+                        User u = DataManager.Users.Single(x => x.id == textBox3.Text);
+                        b.userId = u.id;
+                        b.userName = u.name;
+                        b.isBorrowed = true;
+                        b.BorrowedAt = DateTime.Now;
+                        DataManager.Save();
+                        for(int i = 0; i<bookBindingSource.Count;i++)
+                        {
+                            if (b.isbn == (bookBindingSource[i] as Book).isbn)
+                                bookBindingSource[i] = b;
+                        }
+                        refreshScreen(); //대출 중인 책의 수 갱신
+                        MessageBox.Show($"{b.name}책이 {u.id}님에게 대여됨");
+
+                    }
+
+                }
+                catch(Exception)
+                {
+                    MessageBox.Show("해당 ISBN을 가진 책은 없습니다. 대여 불가능!");
+                }
+
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)

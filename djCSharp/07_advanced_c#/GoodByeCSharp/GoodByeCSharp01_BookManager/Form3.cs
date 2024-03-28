@@ -19,6 +19,7 @@ namespace GoodByeCSharp01_BookManager
         public Form3()
         {
             InitializeComponent();
+            StartPosition = FormStartPosition.CenterScreen;
             dataGridView1.DataSource = null;
             if (DataManager.Users.Count > 0)
                 dataGridView1.DataSource = DataManager.Users;
