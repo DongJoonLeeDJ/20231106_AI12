@@ -17,6 +17,18 @@ namespace GoodByeCSharp03_ObserverPattern
         {
             InitializeComponent();
             textBox1.TextChanged += TextBox1_TextChanged;
+
+            Form2 frm2 = new Form2(this);//this=Form1=ISubject를 구현한 객체
+            frm2.TopLevel = false; //이거 없으면 에러 남
+            frm2.FormBorderStyle = FormBorderStyle.None;
+            panel1.Controls.Add(frm2);
+            frm2.Show();
+
+            Form3 frm3 = new Form3(this);
+            frm3.TopLevel = false;
+            frm3.FormBorderStyle = FormBorderStyle.None;
+            panel2.Controls.Add(frm3);
+            frm3.Show();
         }
 
         private void TextBox1_TextChanged(object sender, EventArgs e)
