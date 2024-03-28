@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodByeCSharp01_BookManager
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodByeCSharp02_SingletonePattern", "GoodByeCSharp02_SingletonePattern\GoodByeCSharp02_SingletonePattern.csproj", "{47D76111-F9A1-4BD7-AD6E-9A4A522124B3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodByeCSharp03_ObserverPattern", "GoodByeCSharp03_ObserverPattern\GoodByeCSharp03_ObserverPattern.csproj", "{26CB775B-C741-4597-B67E-12B24EED4556}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{47D76111-F9A1-4BD7-AD6E-9A4A522124B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47D76111-F9A1-4BD7-AD6E-9A4A522124B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47D76111-F9A1-4BD7-AD6E-9A4A522124B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{26CB775B-C741-4597-B67E-12B24EED4556}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{26CB775B-C741-4597-B67E-12B24EED4556}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{26CB775B-C741-4597-B67E-12B24EED4556}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{26CB775B-C741-4597-B67E-12B24EED4556}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
