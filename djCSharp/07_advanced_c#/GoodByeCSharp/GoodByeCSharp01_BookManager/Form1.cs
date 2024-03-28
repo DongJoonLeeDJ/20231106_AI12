@@ -85,7 +85,7 @@ namespace GoodByeCSharp01_BookManager
             DataGridView thisGridView = s as DataGridView;
             Book b = thisGridView.CurrentRow.DataBoundItem as Book;
             textBox1.Text = b.isbn;
-            textBox2.Text = b.name;
+            textBox2.Text = b.name;  
         }
 
         //private void dgClick(object s, DataGridViewCellEventArgs e)
