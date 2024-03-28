@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodByeCSharp03_ObserverPat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodByeCSharp04_ObserverConsoleVer", "GoodByeCSharp04_ObserverConsoleVer\GoodByeCSharp04_ObserverConsoleVer.csproj", "{9D0CCA3C-FF89-48F2-A456-C43F282502BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodByeCSharp05_Chart", "GoodByeCSharp05_Chart\GoodByeCSharp05_Chart.csproj", "{9B00D1BC-ED48-44F7-BB39-9B6DDAE6626F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{9D0CCA3C-FF89-48F2-A456-C43F282502BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D0CCA3C-FF89-48F2-A456-C43F282502BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D0CCA3C-FF89-48F2-A456-C43F282502BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B00D1BC-ED48-44F7-BB39-9B6DDAE6626F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B00D1BC-ED48-44F7-BB39-9B6DDAE6626F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B00D1BC-ED48-44F7-BB39-9B6DDAE6626F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B00D1BC-ED48-44F7-BB39-9B6DDAE6626F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
