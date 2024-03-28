@@ -95,7 +95,20 @@ namespace GoodByeCSharp01_BookManager
 
         private void deleteUser(object s, EventArgs e)
         {
+            try
+            {
+                User u = DataManager.Users.Single(x => x.id == textBox1.Text);
+                DataManager.Users.Remove(u); //RemoveAt = 인덱스 이용해서 삭제
+                //Remove = 값 혹은 위치를 활용해서 삭제함
+                dataGridView1.DataSource = null;
+                if (DataManager.Users.Count > 0)
+                    dataGridView1.DataSource = DataManager.Users;
+                DataManager.Save();
+            }
+            catch (Exception)
+            {
 
+            }
         }
     }
 }
