@@ -21,6 +21,10 @@ namespace GoodByeCSharp01_BookManager
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen; //화면 중앙에 오게 하기, 디자인 창에서도 설정 가능
             refreshScreen();    //도서 관리나 사용자 관리의 변경 사항을 메인 화면에 바로 반영하기 위해서
+
+            dataGridView1.CellClick += dBookCellClick;
+            DataGridViewCellEventHandler dcell = dgUserClick;
+            dataGridView2.CellClick += dcell;
         }
 
         void refreshScreen()
@@ -71,6 +75,34 @@ namespace GoodByeCSharp01_BookManager
         {
             new Form3().ShowDialog();
             refreshScreen();
+        }
+
+        //EventArgs를 넣어도 됨, 다형성에 의해서
+        //즉 EventArgs e = new DataGridViewCellEventArgs(); 이게 된다는 의미
+        //private void dCellClick(object s, DataGridViewCellEventArgs e)
+        private void dBookCellClick(object s, EventArgs e)
+        {
+            DataGridView thisGridView = s as DataGridView;
+            Book b = thisGridView.CurrentRow.DataBoundItem as Book;
+            textBox1.Text = b.isbn;
+            textBox2.Text = b.name;
+        }
+
+        //private void dgClick(object s, DataGridViewCellEventArgs e)
+        private void dgUserClick(object s, EventArgs e)
+        {
+            User u = (s as DataGridView).CurrentRow.DataBoundItem as User;
+            textBox3.Text = u.id;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
