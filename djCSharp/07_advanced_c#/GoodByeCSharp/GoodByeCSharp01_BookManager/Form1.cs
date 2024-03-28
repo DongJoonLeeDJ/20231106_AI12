@@ -140,7 +140,49 @@ namespace GoodByeCSharp01_BookManager
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if(textBox1.Text.Trim()=="")
+                MessageBox.Show("ISBN 누락!");
+            else
+            {
+                try
+                {
+                    for(int i = 0; i<bookBindingSource.Count;i++)
+                    {
+                        if ( (bookBindingSource[i] as Book).isbn == textBox1.Text )
+                        {
+                            Book b = DataManager.Books.Single(x => x.isbn == textBox1.Text);
+                            if(b.isBorrowed)
+                            {
+                                b.userId = "";
+                                b.userName = "";
+                                b.isBorrowed = false;
+                                DateTime oldDay = b.BorrowedAt; //빌렸던 시점
+                                b.BorrowedAt = new DateTime(); // 초기화
+                                
+                                DataManager.Save(); //파일에 반영
 
+                                bookBindingSource[i] = b;
+
+                                TimeSpan timeDiff = DateTime.Now - oldDay;
+                                if(timeDiff.Days>7)
+                                    MessageBox.Show(b.isbn+"("+b.name+")"+"책 연체 반납");
+                                else
+                                    MessageBox.Show(b.isbn +"(" + b.name + ")"+"책 정상 반납");
+
+                                refreshScreen(); //화면에 반영 //연체 반납중인 내용들도 모두 정상 처리 될 것
+                            }
+                            else
+                            {
+                                MessageBox.Show("아직 빌리지 않았으므로 반납 불가능");
+                            }
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("없는 책이므로 반납 불가능!");
+                }
+            }
         }
     }
 }
