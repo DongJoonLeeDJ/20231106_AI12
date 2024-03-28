@@ -76,14 +76,36 @@ namespace GoodByeCSharp01_BookManager
                     b.page = page;
                     DataManager.Books[i] = b;
                     DataManager.Save();
-                    
+                    dataGridView1.Refresh(); //dataGridView1이랑 연결된 bookBindingSource의 변경사항을 반영
+
                 }
             }
+            if(b==null)
+                MessageBox.Show("없는 책이므로 수정 불가능");
         }
 
         private void button3_Click(object sender, EventArgs e) //삭제
         {
-
+            bool existBook = false;
+            for(int i = 0; i<bookBindingSource.Count; i++)
+            {
+                Book b = bookBindingSource[i] as Book;
+                if(b.isbn == textBox1.Text)
+                {
+                    bookBindingSource.RemoveAt(i);
+                    dataGridView1.Refresh();
+                    DataManager.Books.RemoveAt(i);
+                    existBook = true;
+                }
+            }
+            if(existBook)
+            {
+                DataManager.Save();
+            }
+            else
+            {
+                MessageBox.Show("없는 책은 삭제 불가능");
+            }
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
