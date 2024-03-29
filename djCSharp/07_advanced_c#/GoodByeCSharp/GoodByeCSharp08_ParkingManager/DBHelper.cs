@@ -21,7 +21,8 @@ namespace GoodByeCSharp08_ParkingManager
 
         protected abstract void ConnectDB();
         public abstract void DoQuery(string ps="-1"); //select용
-        public abstract void DoQuery(ParkingCar car, bool isremove); //update insert delete용
+        public abstract void DoQuery(ParkingCar car); //update insert delete용으로 만들었으나...
+        //주차 관리에서는 이 메서드를 업데이트용으로만 쓸 예정(주차/출차)
 
     }
 }

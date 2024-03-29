@@ -48,10 +48,78 @@ namespace GoodByeCSharp08_ParkingManager
             }
         }
 
-        public override void DoQuery(ParkingCar car, bool isremove)
+        //isremove = 주차 혹은 출차 여부
+        public override void DoQuery(ParkingCar car)
         {
-            throw new NotImplementedException();
+            try
+            {
+                ConnectDB();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                string sql = "";
+                sql = "update parkingmanager set carnumber=@carnumber," +
+                    "drivername=@drivername,phonenumber=@phonenumber," +
+                    "parkingtime=@parkingtime where parkingspot=@parkingspot";
+                cmd.Parameters.AddWithValue("@carnumber", car.carNumber);
+                cmd.Parameters.AddWithValue("@drivername", car.driverName);
+                cmd.Parameters.AddWithValue("@phonenumber", car.phoneNumber);
+                cmd.Parameters.AddWithValue("@parkingtime", car.parkingTime);
+                cmd.Parameters.AddWithValue("@parkingspot", car.parkingSpot);
+                cmd.CommandText = sql;
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                System.Windows.Forms.MessageBox.Show(ex.StackTrace);
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
+        //주차 공간 추가 및 삭제 코드
+        private void spotManagingQuery(string ps, string cmd)
+        {
+            string sql = "";
+            cmd = cmd.ToLower(); 
+            if(cmd.Equals("insert"))
+            {
+                sql = "insert into parkingmanager(parkingspot) values(@ps)";
+            }
+            else
+            {
+                sql = "delete from parkingmanager where parkingspot = @ps";
+            }
+            try
+            {
+                ConnectDB();
+                SqlCommand sqlCommand = new SqlCommand();
+                //sqlCommand.CommandType = CommandType.StoredProcedure;
+                sqlCommand.Connection = conn;
+                sqlCommand.Parameters.AddWithValue("@ps", ps);
+                sqlCommand.CommandText = sql;
+                sqlCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                System.Windows.Forms.MessageBox.Show(ex.StackTrace);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+        public void deleteParkingSpot(string ps)
+        {
+            spotManagingQuery(ps, "delete");
+        }
+        public void insertParkingSpot(string ps)
+        {
+            spotManagingQuery(ps, "insert");
+        }
     }
 }
