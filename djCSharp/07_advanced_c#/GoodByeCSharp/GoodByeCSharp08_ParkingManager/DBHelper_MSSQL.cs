@@ -15,7 +15,7 @@ namespace GoodByeCSharp08_ParkingManager
 
         private static DBHelper_MSSQL instance = null;
 
-        public static DBHelper_MSSQL getIntance
+        public static DBHelper_MSSQL getInstance
         {
             get
             {
