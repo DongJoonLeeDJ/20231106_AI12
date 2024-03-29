@@ -88,12 +88,12 @@ namespace GoodByeCSharp08_ParkingManager
                 cmd.Parameters.AddWithValue("@phonenumber", car.phoneNumber);
                 cmd.Parameters.AddWithValue("@parkingtime", car.parkingTime);
                 cmd.Parameters.AddWithValue("@parkingspot", car.parkingSpot);
-                if(car.carNumber == "")
+                if(car.carNumber == "") //차뺀다는 의미
                 {
                     sql = "update parkingmanager set carnumber=@carnumber," +
                         "drivername=@drivername,phonenumber=@phonenumber," +
                         "parkingtime='' where parkingspot=@parkingspot";
-                    cmd.Parameters.RemoveAt(3);
+                    cmd.Parameters.RemoveAt(3);  // @parkingtime 삭제
                 }
                 cmd.CommandText = sql;
                 cmd.ExecuteNonQuery();
