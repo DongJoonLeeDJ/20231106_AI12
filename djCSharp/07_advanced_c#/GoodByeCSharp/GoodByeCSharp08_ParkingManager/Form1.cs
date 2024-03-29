@@ -20,7 +20,9 @@ namespace GoodByeCSharp08_ParkingManager
         private void writeLog(string contents)
         {
             DataManager.printLog(contents);
-            listBox1.Items.Insert(0, contents); //최신 내용이 맨 위에 올라감
+            string log = $"[{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")}]";
+            log += contents;
+            listBox1.Items.Insert(0, log); //최신 내용이 맨 위에 올라감
             //listBox1.Items.Add(contents); //최신 내용이 맨 아래로 내려감
         }
 
@@ -31,7 +33,7 @@ namespace GoodByeCSharp08_ParkingManager
 
         private void button2_Click(object sender, EventArgs e)
         {
-            writeLog("버튼 1 클릭(출차)");
+            writeLog("버튼 2 클릭(출차)");
         }
 
         private void button3_Click(object sender, EventArgs e)
