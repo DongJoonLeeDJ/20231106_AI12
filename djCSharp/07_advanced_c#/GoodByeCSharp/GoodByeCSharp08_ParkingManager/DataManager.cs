@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,14 @@ namespace GoodByeCSharp08_ParkingManager
         {
             try
             {
-
+                mssql.DoQuery(); //전체 조회
+                Cars.Clear();
+                foreach(DataRow item in mssql.dt.Rows)
+                {
+                    ParkingCar car = new ParkingCar();
+                    car.parkingSpot = item["parkingspot"].ToString();
+                    Cars.Add(car);  
+                }
             }
             catch (Exception ex)
             {
