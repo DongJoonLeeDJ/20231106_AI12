@@ -91,6 +91,7 @@ namespace GoodByeCSharp07_ConnectDBMS_MSSQL
                 else
                 {
                     MessageBox.Show("sqltype : " + sqltype);
+                    return;
                 }
                 cmd.CommandText = query;
                 cmd.ExecuteNonQuery();
