@@ -78,6 +78,42 @@ namespace GoodByeCSharp08_ParkingManager
         private void button2_Click(object sender, EventArgs e)
         {
             //writeLog("버튼 2 클릭(출차)");
+            if(textBox1.Text.Trim()=="")
+                MessageBox.Show("주차 공간 번호를 입력하세요(출차)");
+            else
+            {
+                try
+                {
+                    ParkingCar car = DataManager.Cars.Single
+                        (x => x.parkingSpot == textBox1.Text);
+                    if(car.carNumber.Trim()=="")
+                        MessageBox.Show("차가 없으므로 출차 불가능");
+                    else
+                    {
+                        string oldCar = car.carNumber;//기존에 주차된 차
+                        car.parkingSpot = textBox1.Text;
+                        car.carNumber = "";
+                        car.driverName = "";
+                        car.phoneNumber = "";
+                        car.parkingTime = new DateTime();
+
+                        dataGridView1.DataSource = null;
+                        dataGridView1.DataSource = DataManager.Cars;
+
+                        DataManager.Save(car);
+                        string contents = $"주차공간 {car.parkingSpot} 에서 {oldCar} 출차";
+                        writeLog(contents);
+                        MessageBox.Show(contents);
+
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"주차 공간{textBox1.Text} 없음(출차)");
+                    writeLog($"주차 공간{textBox1.Text} 없음(출차)");
+                }
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
