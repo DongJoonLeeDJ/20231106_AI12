@@ -28,12 +28,12 @@ namespace GoodByeCSharp08_ParkingManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            writeLog("버튼 1 클릭(주차)");
+            //writeLog("버튼 1 클릭(주차)");
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            writeLog("버튼 2 클릭(출차)");
+            //writeLog("버튼 2 클릭(출차)");
         }
 
         private void button3_Click(object sender, EventArgs e)

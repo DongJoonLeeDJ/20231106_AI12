@@ -62,6 +62,8 @@ namespace GoodByeCSharp08_ParkingManager
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
                 System.Windows.Forms.MessageBox.Show(ex.StackTrace);
+                DataManager.printLog(ex.Message);
+                DataManager.printLog(ex.StackTrace);
             }
             finally
             {
@@ -92,8 +94,11 @@ namespace GoodByeCSharp08_ParkingManager
             }
             catch (Exception ex)
             {
+
                 System.Windows.Forms.MessageBox.Show(ex.Message);
                 System.Windows.Forms.MessageBox.Show(ex.StackTrace);
+                DataManager.printLog(ex.Message);
+                DataManager.printLog(ex.StackTrace);
             }
             finally
             {
@@ -128,6 +133,8 @@ namespace GoodByeCSharp08_ParkingManager
             {
                 System.Windows.Forms.MessageBox.Show(ex.Message);
                 System.Windows.Forms.MessageBox.Show(ex.StackTrace);
+                DataManager.printLog(ex.Message);
+                DataManager.printLog(ex.StackTrace);
             }
             finally
             {
