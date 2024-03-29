@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodByeCSharp07_ConnectDBMS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodByeCSharp08_ParkingManager", "GoodByeCSharp08_ParkingManager\GoodByeCSharp08_ParkingManager.csproj", "{05FD950C-F9CC-458C-8344-820C98DB176D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParkingCarManager", "ParkingCarManager\ParkingCarManager.csproj", "{ABCD9B12-8DBF-467B-A08F-780A96E402F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoodByeCSharp09_API", "GoodByeCSharp09_API\GoodByeCSharp09_API.csproj", "{DB909E92-AEB9-497A-A80B-C7925910AFE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +67,14 @@ Global
 		{05FD950C-F9CC-458C-8344-820C98DB176D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05FD950C-F9CC-458C-8344-820C98DB176D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05FD950C-F9CC-458C-8344-820C98DB176D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABCD9B12-8DBF-467B-A08F-780A96E402F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABCD9B12-8DBF-467B-A08F-780A96E402F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABCD9B12-8DBF-467B-A08F-780A96E402F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABCD9B12-8DBF-467B-A08F-780A96E402F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB909E92-AEB9-497A-A80B-C7925910AFE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB909E92-AEB9-497A-A80B-C7925910AFE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB909E92-AEB9-497A-A80B-C7925910AFE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB909E92-AEB9-497A-A80B-C7925910AFE4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
