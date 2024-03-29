@@ -95,7 +95,7 @@ namespace GoodByeCSharp08_ParkingManager
                         car.carNumber = "";
                         car.driverName = "";
                         car.phoneNumber = "";
-                        car.parkingTime = new DateTime();
+                        //car.parkingTime = DateTime.Parse("1753-01-01 오전 12:00:00");
 
                         dataGridView1.DataSource = null;
                         dataGridView1.DataSource = DataManager.Cars;

@@ -80,14 +80,21 @@ namespace GoodByeCSharp08_ParkingManager
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 string sql = "";
-                sql = "update parkingmanager set carnumber=@carnumber," +
-                    "drivername=@drivername,phonenumber=@phonenumber," +
-                    "parkingtime=@parkingtime where parkingspot=@parkingspot";
+                    sql = "update parkingmanager set carnumber=@carnumber," +
+                        "drivername=@drivername,phonenumber=@phonenumber," +
+                        "parkingtime=@parkingtime where parkingspot=@parkingspot";
                 cmd.Parameters.AddWithValue("@carnumber", car.carNumber);
                 cmd.Parameters.AddWithValue("@drivername", car.driverName);
                 cmd.Parameters.AddWithValue("@phonenumber", car.phoneNumber);
                 cmd.Parameters.AddWithValue("@parkingtime", car.parkingTime);
                 cmd.Parameters.AddWithValue("@parkingspot", car.parkingSpot);
+                if(car.carNumber == "")
+                {
+                    sql = "update parkingmanager set carnumber=@carnumber," +
+                        "drivername=@drivername,phonenumber=@phonenumber," +
+                        "parkingtime='' where parkingspot=@parkingspot";
+                    cmd.Parameters.RemoveAt(3);
+                }
                 cmd.CommandText = sql;
                 cmd.ExecuteNonQuery();
 
