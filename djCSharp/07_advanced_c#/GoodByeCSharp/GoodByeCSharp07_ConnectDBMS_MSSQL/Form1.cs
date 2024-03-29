@@ -13,6 +13,10 @@ namespace GoodByeCSharp07_ConnectDBMS_MSSQL
 {
     public partial class Form1 : Form
     {
+        enum CRUD //숫자에 이름 붙이는 것
+        {
+            INSERT, UPDATE=5, DELETE
+        }
         public Form1()
         {
             InitializeComponent();
@@ -49,6 +53,55 @@ namespace GoodByeCSharp07_ConnectDBMS_MSSQL
             finally
             {
                 conn.Close(); //java에서는 이 코드를 try catch 감싸야 하기도 함
+            }
+        }
+
+        //SQL Injection(=SQL 삽입 공격) 방지를 위하여 별도의 파라메터로 값들을 설정
+        //SQL 삽입 공격이란 비밀번호나 주요 정보를 탈취하기 위한 해킹 수법
+        //직접적으로 SQL문을 적지 않고 간접적으로 적음
+        private void sendQuery(string query, CRUD sqltype)
+        {
+            //ConnectDB();
+            try
+            {
+                ConnectDB(); // 한 번 열었으면 한 번 닫아야 됨. 이미 열었는 데 또 열면 안 됨
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                if (sqltype == CRUD.UPDATE)
+                {
+                    MessageBox.Show("데이터 수정!");
+                    //update table set name=@name where hakbeon=@hakbeon;
+                    cmd.Parameters.AddWithValue("@name", textBox2.Text);
+                    cmd.Parameters.AddWithValue("@hakbeon", textBox1.Text);
+                }
+                else if (sqltype == CRUD.INSERT)
+                {
+                    MessageBox.Show("데이터 추가!");
+                    //insert into table values(@hakbeon, @name);
+                    //insert into table values('aa','bb');  //AddWithValue 쓸 땐 문자열이라고 해도 굳이 따옴표 필요없음
+                    cmd.Parameters.AddWithValue("@hakbeon", textBox1.Text);
+                    cmd.Parameters.AddWithValue("@name", textBox2.Text);
+                }
+                else if (sqltype == CRUD.DELETE)
+                {
+                    MessageBox.Show("데이터 삭제!");
+                    //delete from table where hakbeon=@hakbeon
+                    cmd.Parameters.AddWithValue("@hakbeon", textBox1.Text);
+                }
+                else
+                {
+                    MessageBox.Show("sqltype : " + sqltype);
+                }
+                cmd.CommandText = query;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                conn.Close();
             }
         }
 
