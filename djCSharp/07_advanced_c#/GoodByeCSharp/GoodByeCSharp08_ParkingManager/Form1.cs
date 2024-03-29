@@ -16,5 +16,47 @@ namespace GoodByeCSharp08_ParkingManager
         {
             InitializeComponent();
         }
+
+        private void writeLog(string contents)
+        {
+            DataManager.printLog(contents);
+            listBox1.Items.Insert(0, contents); //최신 내용이 맨 위에 올라감
+            //listBox1.Items.Add(contents); //최신 내용이 맨 아래로 내려감
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            writeLog("버튼 1 클릭(주차)");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            writeLog("버튼 1 클릭(출차)");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
