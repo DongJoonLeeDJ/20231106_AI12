@@ -12,6 +12,6 @@ namespace GoodByeCSharp08_ParkingManager
         public string carNumber { get; set; }
         public string driverName { get; set; }
         public string phoneNumber { get; set; }
-        public string parkingTime { get; set; }
+        public DateTime parkingTime { get; set; }
     }
 }

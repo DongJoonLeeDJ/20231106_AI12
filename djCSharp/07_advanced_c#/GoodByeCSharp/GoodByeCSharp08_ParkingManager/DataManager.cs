@@ -23,11 +23,16 @@ namespace GoodByeCSharp08_ParkingManager
             try
             {
                 mssql.DoQuery(); //전체 조회
-                Cars.Clear();
+                Cars.Clear(); //Cars 초기화
                 foreach(DataRow item in mssql.dt.Rows)
                 {
                     ParkingCar car = new ParkingCar();
                     car.parkingSpot = item["parkingspot"].ToString();
+                    car.carNumber = item["carnumber"].ToString();
+                    car.driverName = item["drivername"].ToString();
+                    car.phoneNumber = item["phonenumber"].ToString();
+                    car.parkingTime = item["parkingtime"].ToString() == "" ? new DateTime() : 
+                    DateTime.Parse(item["parkingtime"].ToString());
                     Cars.Add(car);  
                 }
             }
