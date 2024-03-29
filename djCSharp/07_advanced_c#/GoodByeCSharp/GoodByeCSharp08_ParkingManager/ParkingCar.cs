@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GoodByeCSharp08_ParkingManager
 {
-    internal class ParkingCar
+    public class ParkingCar
     {
     }
 }
