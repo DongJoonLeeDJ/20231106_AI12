@@ -12,6 +12,27 @@ namespace GoodByeCSharp08_ParkingManager
     {
         //DoQuery() // ps 값은 자동으로 "-1"을 대입함
         //DoQuery("123") // ps 값을 "123"을 대입함
+
+        private static DBHelper_MSSQL instance = null;
+
+        public static DBHelper_MSSQL getIntance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new DBHelper_MSSQL();
+                return instance;
+            }
+        }
+
+        private DBHelper_MSSQL() //private을 썼다는 건 외부에서 인스턴스 못 만듦
+        {
+
+        }
+
+
+
+
         protected override void ConnectDB()
         {
             conn.ConnectionString = $"Data Source=({"local"}); " +
