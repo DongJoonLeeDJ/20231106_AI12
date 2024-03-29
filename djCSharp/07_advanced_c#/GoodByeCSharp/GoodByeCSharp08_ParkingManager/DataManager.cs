@@ -45,6 +45,10 @@ namespace GoodByeCSharp08_ParkingManager
         //contents = 로그(=기록)남길 때 쓸 것임
         public static bool Save(string cmd, string ps, out string contents) //주차 공간 추가 삭제용 Save
         {
+
+            //해당 공간 이미 있는 지 여부 체크
+            mssql.DoQuery(ps);
+
             contents = "";
             if (cmd.Equals("insert"))
                 return DBInsert(ps, ref contents);
