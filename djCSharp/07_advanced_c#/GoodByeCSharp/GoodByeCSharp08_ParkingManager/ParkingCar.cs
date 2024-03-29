@@ -8,7 +8,7 @@ namespace GoodByeCSharp08_ParkingManager
 {
     public class ParkingCar
     {
-        public string parkingSpot { get; set; }
+        public string parkingSpot { get; set; } // PK
         public string carNumber { get; set; }
         public string driverName { get; set; }
         public string phoneNumber { get; set; }
