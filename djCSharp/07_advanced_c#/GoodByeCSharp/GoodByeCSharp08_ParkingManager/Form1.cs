@@ -118,6 +118,24 @@ namespace GoodByeCSharp08_ParkingManager
         private void button3_Click(object sender, EventArgs e)
         {
             //조회
+            try
+            {
+                ParkingCar car = DataManager.Cars.Single(x => x.parkingSpot == textBox5.Text);
+                if(car.carNumber == "")
+                {
+                    MessageBox.Show($"{car.parkingSpot} 공간에는 차가 없음");
+                    writeLog($"{car.parkingSpot} 공간에는 차가 없음");
+                }
+                else
+                {
+                    MessageBox.Show($"{car.parkingSpot} 공간에는 {car.carNumber} 있음");
+                    writeLog($"{car.parkingSpot} 공간에는 {car.carNumber} 있음");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("해당 주차 공간 없음(조회 기능)");
+            }
         }
 
         private void managingSpot(string parkingSpot, string cmd)//주차 공간 추가 or 삭제
