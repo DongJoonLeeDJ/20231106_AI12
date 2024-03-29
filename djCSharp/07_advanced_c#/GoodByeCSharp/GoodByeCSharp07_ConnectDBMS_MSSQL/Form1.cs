@@ -108,17 +108,20 @@ namespace GoodByeCSharp07_ConnectDBMS_MSSQL
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            sendQuery("insert into testtable values(@hakbeon,@name)", CRUD.INSERT);
+            button1.PerformClick(); //실제 버튼 클릭한 것
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            sendQuery("update testtable set name=@name where hakbeon=@hakbeon", CRUD.UPDATE);
+            button1_Click(null, null); //버튼 클릭했을 때 실행되는 메서드를 강제로 실행한 것 
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-
+            sendQuery("delete from testtable where hakbeon=@hakbeon", CRUD.DELETE);
+            button1.PerformClick(); //실제 버튼 클릭한 것
         }
     }
 }
