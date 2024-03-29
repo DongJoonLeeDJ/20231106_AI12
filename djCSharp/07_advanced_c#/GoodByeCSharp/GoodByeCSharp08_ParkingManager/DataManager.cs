@@ -12,9 +12,22 @@ namespace GoodByeCSharp08_ParkingManager
         public static List<ParkingCar> Cars = new List<ParkingCar>();
         private static DBHelper_MSSQL mssql = DBHelper_MSSQL.getInstance; //싱글톤
 
+        static DataManager()
+        {
+            Load();
+        }
+
         public static void Load() //전체 불러오기
         {
+            try
+            {
 
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                printLog(ex.StackTrace + " from Load ");
+            }
         }
         //contents = 로그(=기록)남길 때 쓸 것임
         public static bool Save(string cmd, string ps, out string contents) //주차 공간 추가 삭제용 Save
@@ -72,6 +85,7 @@ namespace GoodByeCSharp08_ParkingManager
             //이거 없으면 계속 내용 덮어쓰기만 해서 과거 내용이 계속 지워짐
             using (StreamWriter w = new StreamWriter(@"LogFolder\History.txt", true))
             {
+                w.Write($"[{DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")}]");
                 w.WriteLine(contents);
             }
         }
