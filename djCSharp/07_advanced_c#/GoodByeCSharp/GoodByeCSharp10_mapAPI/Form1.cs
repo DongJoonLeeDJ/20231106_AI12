@@ -36,7 +36,7 @@ namespace GoodByeCSharp10_mapAPI
         {
             if (listBox1.SelectedIndex == -1)
                 return;
-            Locale ml = listBox1.SelectedItems as Locale;
+            Locale ml = listBox1.SelectedItem as Locale;
             object[] pos = new object[] { ml.Lat, ml.Lng };
             HtmlDocument hdoc = webBrowser1.Document;
             hdoc.InvokeScript("setCenter", pos); //setCenter 호출하고 매개변수는 pos
