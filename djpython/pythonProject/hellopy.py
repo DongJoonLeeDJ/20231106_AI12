@@ -63,6 +63,10 @@ stu = Student.Student() #Student 클래스 안의
 # Student 생성자 호출(__init__를 호출한 것임)
 stu.doStudy() #Student 클래스 안의 doStudy 호출함
 
+from Student import *
+mystu = Student() #Student. 생략 가능
+mystu.doStudy()
+
 
 
 
