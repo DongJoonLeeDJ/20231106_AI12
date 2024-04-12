@@ -56,6 +56,14 @@ for l,s in simbols:
     print('언어:%s, 상징:%s'  %   (l,s)  )
     print('언어={}, 상징={}'.format(l,s))
 
+#java, c#과는 다르게 import문을 중간에도 쓸 수 있음
+import Student
+#Student stu = new Student() # java,C#버전
+stu = Student.Student() #Student 클래스 안의
+# Student 생성자 호출(__init__를 호출한 것임)
+stu.doStudy()
+
+
 
 
 
