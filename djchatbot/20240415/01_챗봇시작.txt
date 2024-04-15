@@ -30,6 +30,7 @@ def kakaoHello():
             ]
         }
     }
+    return responseMsg
 
 
 if __name__ == "__main__":
