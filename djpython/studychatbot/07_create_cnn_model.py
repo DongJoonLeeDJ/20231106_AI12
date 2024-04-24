@@ -1,3 +1,5 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2' #CPU버전
 # 필요한 모듈 임포트
 import pandas as pd
 import tensorflow as tf
@@ -6,7 +8,7 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.layers import Input, Embedding, Dense, Dropout, Conv1D, GlobalMaxPool1D, concatenate
 
 # 데이터 읽어오기
-train_file = "./chatbot_data.csv"
+train_file = "chatbot_data.csv"
 data = pd.read_csv(train_file, delimiter=',')
 features = data['Q'].tolist()
 labels = data['label'].tolist()
@@ -70,4 +72,4 @@ print('Accuracy: %f' % (accuracy * 100))
 print('loss: %f' % (loss))
 
 # 모델 저장
-model.save('cnn_model.keras')
+model.save('cnn_model.h5')
