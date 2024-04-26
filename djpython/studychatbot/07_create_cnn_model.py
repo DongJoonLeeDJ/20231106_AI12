@@ -57,7 +57,7 @@ concat = concatenate([pool1, pool2, pool3])
 hidden = Dense(128, activation=tf.nn.relu)(concat)
 dropout_hidden = Dropout(rate=dropout_prob)(hidden)
 logits = Dense(3, name='logits')(dropout_hidden)
-predictions = Dense(3, activation=tf.nn.softmax)(logits)
+predictions = Dense(3, activation='softmax')(logits) # 활성화 함수를 문자열로 지정하는 것이 권장 사항
 
 # 모델 생성
 model = Model(inputs=input_layer, outputs=predictions)
@@ -72,4 +72,4 @@ print('Accuracy: %f' % (accuracy * 100))
 print('loss: %f' % (loss))
 
 # 모델 저장
-model.save('cnn_model.h5')
+model.save('cnn_model.keras')
