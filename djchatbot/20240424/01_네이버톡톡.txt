@@ -1,0 +1,32 @@
+import requests, json, urllib.request
+from flask import Flask, request, jsonify, abort
+import sys
+application = Flask(__name__)
+
+
+@application.route("/navertalk", methods=['POST'])
+def hello():
+    authKey = 'GQS/bLDzRxKey/KWbGWe' #네이버 톡톡 파트너센터 가져올 것
+    headers = {
+        'Content-type' : 'application/json;charset=UTF-8',
+        'Authorization' : authKey
+    }
+    getReqJson = request.get_json()
+    print(getReqJson)
+    userMsg = getReqJson['textContent']['text']
+    userKey = getReqJson['user']
+    data = {
+        'event' : 'send',
+        'user':userKey,
+        'textContent' : {'text' : userMsg}
+    }
+    message = json.dumps(data)
+    response = requests.post('https://gw.talk.naver.com/chatbot/v1/event', headers=headers, data=message)
+    #카톡챗봇은 return이 중요했음
+    #네이버는 requests.post가 중요함
+    #메시지 여러 개 보내고 싶으면 requests.post를 여러 번 하면 됨
+    return str(response) #return은 없어도 되긴 함...
+
+
+if __name__ == "__main__":
+    application.run(host='0.0.0.0', port=80)
