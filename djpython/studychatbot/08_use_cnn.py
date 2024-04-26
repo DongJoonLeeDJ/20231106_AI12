@@ -1,40 +1,39 @@
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
 import pandas as pd
 from tensorflow.keras.models import Model, load_model
 from tensorflow.keras import preprocessing
 
-#1 데이터 읽어오기
-train_file = "chatbot_data.csv"
-data = pd.read_csv(train_file,delimiter=',')
+
+# 데이터 읽어오기
+train_file = "./chatbot_data.csv"
+data = pd.read_csv(train_file, delimiter=',')
 features = data['Q'].tolist()
-
-
-#2 단어 인덱스 시퀀스 벡터
+labels = data['label'].tolist()
+# 단어 인덱스 시퀀스 벡터
 corpus = [preprocessing.text.text_to_word_sequence(text) for text in features]
-
 tokenizer = preprocessing.text.Tokenizer()
-tokenizer.fit_on_texts(corpus) #fit_on_texts() 메서드는 문자 데이터를 입력받아서 리스트의 형태로 변환합니다.
+tokenizer.fit_on_texts(corpus)
 sequences = tokenizer.texts_to_sequences(corpus)
-
-MAX_SEQ_LEN  = 15
+MAX_SEQ_LEN = 15  # 단어 시퀀스 벡터 크기
 padded_seqs = preprocessing.sequence.pad_sequences(sequences, maxlen=MAX_SEQ_LEN, padding='post')
 
-#4 감정 분류 CNN 모델 불러 오기
-model = load_model('cnn_model.h5')
+# 테스트용 데이터셋 생성
+ds = tf.data.Dataset.from_tensor_slices((padded_seqs, labels))
+ds = ds.shuffle(len(features))
+test_ds = ds.take(2000).batch(20)  # 테스트 데이터셋
+# 감정 분류 CNN 모델 불러오기
+model = load_model('cnn_model.keras')
+model.summary()
+model.evaluate(test_ds, verbose=2)
 
+# 테스트용 데이터셋의 10212번째 데이터 출력
+print("단어 시퀀스 : ", corpus[10212])
+print("단어 인덱스 시퀀스 : ", padded_seqs[10212])
+print("문장 분류(정답) : ", labels[10212])
 
+# 테스트용 데이터셋의 10212번째 데이터 감정 예측
 picks = [10212]
-try:
-    predict = model.predict(padded_seqs[picks])
-    predict_class = tf.math.argmax(predict, axis=1)
-    emo = predict_class.numpy()[0]
-except:
-    emo = 0
-
-emotions = {0:"보통", 1:"부정", 2:"긍정"}
-
-#print('감정 예측 점수 : ', predict)
-#print('감정 예측 클래스 : ' , predict_class.numpy())
-print('감정 : ' , emotions[emo])
+predict = model.predict(padded_seqs[picks])
+predict_class = tf.math.argmax(predict, axis=1)
+print("감정 예측 점수 : ", predict)
+print("감정 예측 클래스 : ", predict_class.numpy())
